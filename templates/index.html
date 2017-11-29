@@ -1,0 +1,20 @@
+<h1>Welcome to the Great Number Game!</h1>
+<p>I am thinking of a number between 1 and 100</p>
+<p>Take a guess!</p>
+
+{% if session["somekey"]==session["guess"] and  session["guess"] != 0%}
+<p>CORRECT!</p>
+{%endif%}
+{% if session["somekey"] > session["guess"] and  session["guess"] != 0%}
+<p>too low!</p>
+{%endif%}
+{% if session["guess"] > session["somekey"] and session["guess"] != 0%}
+<p>too high!</p>
+{%endif%}
+<form action="/guess" method= "post">
+<input type="number" name="guess">
+<input type= "submit" value="Submit">
+</form>
+<form action="/reset" method="post">
+<input type="submit" value="reset">
+</form>
